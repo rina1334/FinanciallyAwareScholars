@@ -1,0 +1,851 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom right, #FAF3E0, #C2A878); /* keep soft gold/green gradient */
+}
+
+#firstPage {
+    display: block;
+}
+
+#secondPage {
+    display: none;
+}
+
+#thirdPage {
+    display: none;
+}
+
+#fourthPage {
+  display: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #968037; /* muted green from logo */
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#navTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff; /* white for contrast */
+}
+
+/* Links */
+#links {
+    display: flex;
+    gap: 25px;
+}
+
+#links a {
+    text-decoration: none;
+    color: #ffffff; /* white for readability */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+#links a:hover {
+    color: #AE5B22; /* accent gold */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        
+    }
+
+    #links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    #navTitle {
+        font-size: 0.5rem;
+        text-align: center;
+    }
+}
+
+#hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 6px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: #8C2517; /* dark accent */
+    border: none;
+}
+
+#hamburger div {
+    width: 24px;
+    height: 3px;
+    background-color: #E5CFBA; /* light gold/cream */
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    #links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #968037; /* green */
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 20px;
+        margin:0;
+        gap: 10px;
+        border-radius: 0 0 0 8px;
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+    #links a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        color: #ffffff;
+    }
+
+    #links.open {
+        display: flex;
+    }
+
+    #hamburger {
+        display: flex;
+    }
+
+    #navTitle {
+        font-size: 1.1rem; /* smaller title for mobile */
+        margin: 0;
+        line-height: 1.2;
+    }
+}
+
+#firstPage header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    min-height: 90vh;
+    padding: 60px 8%;
+    background: #e4c6aa; /* soft cream for hero */
+    gap: 60px;
+}
+
+/* Hero layout container */
+.background2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  background: linear-gradient(to bottom right, #FAF3E0, #C2A878);
+  padding: 60px;
+  width: 90%;
+  border-radius: 30px;
+  border: 2px solid #968037;
+  flex-wrap: nowrap;
+}
+
+/* Make text take left side */
+.hero-text {
+  flex: 1 1 50%;
+}
+
+/* Make image take right side */
+#FASlogo {
+  flex: 1 1 40%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 850px) {
+  /* ensure the hero container stacks vertically on mobile */
+  .background2 {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 5%;
+    gap: 24px;
+    align-items: center;
+  }
+
+  /* make sure text appears first, image after */
+  .background2 .hero-text {
+    order: 1;
+    width: 100%;
+    max-width: 640px;
+  }
+
+  /* logo after the text */
+  #FASlogo {
+    order: 2;
+    max-width: 360px; /* reasonable mobile size */
+    width: 85%;
+    height: auto;
+    margin-top: 6px;
+    align-self: center;
+  }
+
+  /* scale down fonts */
+  .hero-text h1 { font-size: 2.2rem; }
+  .hero-text p  { font-size: 1rem; }
+}
+
+/* Text section (left side) */
+#firstPage header section {
+    flex: 1 1 480px;
+    max-width: 600px;
+}
+
+/* Headline and subtitle */
+#firstPage h1, #secondPage h1 {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    color: #2D6A4F; /* dark red accent */
+    margin-bottom: 1rem;
+    text-shadow:1.5px 1.5px 0 #C2A878;
+}
+
+#firstPage p {
+    font-size: 1.2rem;
+    color: #968037; /* green accent for text harmony */
+    margin-bottom: 1.8rem;
+}
+
+/* Hero image (right side) */
+#FASlogo {
+    flex: 1 1 400px;
+    max-width: 520px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+}
+
+/* Divider */
+.divider {
+    width: 80%;
+    height: 2px;
+    background: #AE5B22; /* gold divider */
+    margin: 60px auto;
+}
+
+/* Mission & Values sections */
+#about, #values, #teamRoles {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    max-width: 900px;
+}
+
+#about h2, #values h2, #teamRoles h2, h2 {
+    font-size: 2rem;
+    color: #8C2517; /* dark accent */
+    margin-bottom: 1rem;
+    text-shadow:1.5px 1.5px 0 #C2A878;
+}
+
+#about p, #values ol, #teamRoles ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333333; /* dark text for readability */
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    #firstPage header {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+        gap: 30px;
+    }
+
+    #FASlogo {
+        order: 2;
+        margin-top: 20px;
+        max-width: 360px;
+    }
+
+    #firstPage h1 {
+        font-size: 2.3rem;
+    }
+
+    #firstPage p {
+        font-size: 1rem;
+    }
+}
+
+/* Hero Layout */
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+    gap: 60px;
+    background-color: #FAF3E0; /* soft gold cream for hero */
+    min-height: 90vh;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #8C2517; /* dark red */
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #968037; /* green accent */
+}
+
+#FASlogo {
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 850px) {
+    #home {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+#home::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(150,192,55,0.1), transparent 70%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.hero-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* === PAGE 2: Meet the Team === */
+#secondPage {
+  background-color: #e4c6aa;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+#team {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom right, #FAF3E0, #C2A878);
+  border-radius: 25px;
+  padding: 60px 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: 2px solid #968037;
+}
+
+#teamHeading {
+  font-size: 2.5rem;
+  color: #8C2517;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 0 #C2A878;
+  letter-spacing: 1px;
+}
+
+/* Carousel Container */
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #C2A878;
+  border-radius: 15px;
+  padding: 10px;
+  background: linear-gradient(to bottom right, #FDF8ED, #F3E9C8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Carousel area */
+.carousel {
+  width: 100%;
+  height: 600px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.carousel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: #C2A878;
+  border-radius: 10px;
+}
+
+.carousel-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.carousel-slide img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+  border: 3px solid #968037;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-slide img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  #team {
+    padding: 40px 20px;
+  }
+
+  #teamHeading {
+    font-size: 2rem;
+  }
+
+  .carousel {
+    height: 450px;
+  }
+
+  .carousel-slide img {
+    max-width: 300px;
+  }
+}
+
+
+/* === PAGE 3 STYLES === */
+#thirdPage {
+  padding: 80px 6%;
+  background-color: #e4c6aa;
+}
+
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-inner {
+  background: linear-gradient(to bottom right, #FAF3E0, #C2A878);
+  border-radius: 20px;
+  padding: 36px;
+  border: 2px solid #968037;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.page-title {
+  font-size: 2.2rem;
+  color: #8C2517;
+  margin-bottom: 18px;
+  text-shadow: 1px 1px 0 #C2A878;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.filter-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px rgba(150,128,80,0.07);
+}
+.filter-btn.active {
+  background: #968037;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Cards grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.card {
+  background: linear-gradient(to bottom right, #FDF8ED, #F3E9C8);
+  padding: 18px;
+  border-radius: 12px;
+  border: 2px solid #C2A878;
+  min-height: 140px;
+}
+.card h3 {
+  margin-top: 0;
+}
+
+/* Accent classes */
+.card.collabs { 
+  border-color: #8C7C3E; 
+}
+.card.interviews { 
+  border-color: #A6675A; 
+}
+.card.initiatives { 
+  border-color: #4F6A5A; 
+}
+.card.collabs h3 {
+  color:#8C7C3E;
+}
+.card.interviews h3 {
+  color: #A6675A
+}
+.card.initiatives h3 {
+  color: #4F6A5A
+}
+.card.collabs h4 {
+  color:#8C7C3E;
+}
+.card.interviews h4 {
+  color: #A6675A
+}
+.card.initiatives h4 {
+  color: #4F6A5A
+}
+
+/* Spotlight accordion */
+.spotlight {
+  margin-top: 10px;
+}
+.accordion-toggle {
+  width: 100%;
+  text-align: left;
+  border: none;
+  padding: 12px 14px;
+  background: #F5EFE2;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.03);
+}
+.accordion-panel {
+  display: none;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #EFE3C8;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+/* CTA */
+.cta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.primary-btn {
+  background: #8C2517;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 650px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .page-inner { padding: 20px; }
+  .cta-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+/* === UNIVERSAL FADE-IN EFFECT === */
+.fade-section {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === FOURTH PAGE (CONTACT & CONNECT) === */
+#fourthPage {
+  padding: 80px 6%;
+  background-color: #e4c6aa;
+  text-align: center;
+}
+
+#contact {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom right, #FAF3E0, #C2A878);
+  border-radius: 25px;
+  padding: 60px 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: 2px solid #968037;
+}
+
+#fourthPage h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.3rem;
+  color: #8C2517;
+  text-shadow: 1px 1px 0 #C2A878;
+}
+
+.contact-info {
+  margin-bottom: 30px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.contact-info a {
+  color: #8C2517;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+  color: #AE5B22;
+}
+
+/* Social Grid Layout (consistent rounded style) */
+.social-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tiktok-container,
+.insta-container {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #FDF8ED, #F3E9C8);
+  border-radius: 20px;
+  padding: 20px;
+  border: 2px solid #C2A878;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+#instaPic {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  border: 2px solid #968037;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* === Fix text overflowing on mobile (fourth page) === */
+#fourthPage, 
+#contact {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+
+/* Make long links wrap instead of stretching off-screen */
+#fourthPage a, 
+#contact a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Adjust layout for mobile */
+@media (max-width: 768px) {
+  #fourthPage, #contact {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* If you have side-by-side containers like TikTok + Instagram */
+  #contact .social-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #contact .tiktok-container,
+  #contact .insta-container {
+    width: 90%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  #instaPic {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
+
+
+/* ===========================
+   Heading & Section spacing fixes (stronger selectors)
+   Paste at the bottom so it overrides previous rules
+   =========================== */
+
+/* Ensure the h2 section titles match .page-title exactly */
+h2.section-title,
+#teamHeading.section-title,
+#contactHeading.section-title,
+.page-title {
+  display: block;
+  font-size: 2.2rem !important;
+  color: #8C2517 !important;
+  text-shadow: 1px 1px 0 #C2A878 !important;
+  text-align: center !important;
+  margin: 0 0 1.5rem 0 !important;    /* bottom spacing like Events */
+  padding: 0 !important;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  box-sizing: border-box;
+}
+
+/* Make sure the visual container (section-box) has consistent top & bottom spacing */
+.section-box {
+  margin-top: 36px !important;
+  margin-bottom: 36px !important;
+  padding: 60px 40px !important;
+  box-sizing: border-box;
+}
+
+/* If something else targets h2 with higher specificity, use this rule */
+#team .section-box > h2.section-title,
+#contact.section-box > h2.section-title,
+#contact .section-box > h2.section-title {
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* If you had an element-level margin on #teamHeading earlier, clear it */
+#teamHeading, #contactHeading {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* A slightly tighter top spacing when the section sits close to a divider/header */
+.section-box.tight {
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+  padding: 48px 32px !important;
+}
+
+/* === Unified Headings === */
+.section-title {
+  font-size: 2.2rem;
+  color: #8C2517;
+  text-shadow: 1px 1px 0 #C2A878;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* === Footer === */
+footer {
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #968037;
+  padding: 15px 30px;
+}
+footer p{
+  color:white;
+}
+
+#team h2.section-title,
+#contact h2.section-title {
+  font-size: 2.2rem;
+  color: #8C2517;
+  text-shadow: 1px 1px 0 #C2A878;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.8rem; /* Matches .page-title spacing */
+  line-height: 1.15;
+}
+
+/* Add consistent top & bottom padding for the section containers */
+#team,
+#contact {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
